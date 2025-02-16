@@ -1,0 +1,31 @@
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 70%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .quantity-btn:hover {
+    background-color: #333;
+  }
+  
+  .quantity {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  
