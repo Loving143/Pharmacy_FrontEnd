@@ -1,11 +1,11 @@
-import React from "react";
+import React ,{useState,useEffect} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ItemCard from "./ItemCard";
 import med1 from "../assets/med1.jpg"; 
 import med2 from "../assets/med2.jpg"; 
 import med3 from "../assets/med3.jpg";  
 import med4 from "../assets/med4.jpg";  
-
+import MedicineService from "../Services/MedicineService";
 const products = [
   {
     id: 1,
@@ -66,10 +66,21 @@ const products = [
 ];
 
 const ItemList = () => {
+  const [medicines, setMedicines] = useState([]);
+
+  useEffect(() => {
+    MedicineService.getAllMedicines()
+      .then(response => {
+        setMedicines(response.data.data);
+      })
+      .catch(error => {
+        console.error("Error fetching medicines:", error);
+      });
+  }, []);
   return (
     <Container className="my-4">
       <Row>
-        {products.map((item) => (
+        {medicines.map((item) => (
           <Col key={item.id} sm={12} md={6} lg={4} xl={3}>
             <ItemCard item={item} />
           </Col>
