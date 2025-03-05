@@ -5,12 +5,13 @@ export const AuthContext = createContext(); // ✅ Fix: Explicitly export AuthCo
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      setUser(JSON.parse(loggedInUser));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const loggedInUser = localStorage.getItem("user");
+  //   if (loggedInUser) {
+  //     console.log(loggedInUser+"Logined user")
+  //     setUser(JSON.parse(loggedInUser));
+  //   }
+  // }, []);
 
   const login = (userData) => {
     setUser(userData);
