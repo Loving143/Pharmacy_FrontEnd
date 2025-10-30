@@ -10,6 +10,8 @@ import { CartProvider } from "./context/CartContext";
 import CartPage from './pages/CartPage';
 import { AuthProvider } from "./context/AuthContext";
 import Signup from './components/Signup';
+
+import Login from './components/Login';
 import UserDashboard from './components/UserComponent/UserDashBoard';
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
     
     <Routes>
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/" element={<CategoryBar/>} />
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/product/:id" element={<ProductDetails />} />
