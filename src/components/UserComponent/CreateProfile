@@ -1,0 +1,176 @@
+import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import AuthService from "../../Services/AuthService"; // ✅ using your service
+import styles from "./CreateProfile.module.css";
+
+// ✅ Yup validation schema
+const schema = yup.object().shape({
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
+  dateOfBirth: yup
+    .date()
+    .required("Date of birth is required")
+    .max(new Date(), "Invalid date"),
+  phoneNumber: yup
+    .string()
+    .required("Phone number is required")
+    .matches(/^[0-9]{10}$/, "Enter a valid 10-digit number"),
+  bloodGroup: yup.string().required("Blood group is required"),
+  profilePicture: yup
+    .string()
+    .url("Enter a valid image URL")
+    .required("Profile picture is required"),
+  age: yup
+    .number()
+    .typeError("Age must be a number")
+    .required("Age is required")
+    .positive()
+    .integer(),
+});
+
+const CreateProfile = () => {
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = async (data) => {
+    try {
+      // ✅ We call AuthService instead of axios directly
+      const res = await AuthService.createProfile(data);
+
+      toast.success("🎉 Profile created successfully!");
+      reset();
+
+      // Go back to dashboard after success
+      setTimeout(() => navigate("/dashboard"), 1500);
+    } catch (err) {
+      console.error("❌ Error creating profile:", err);
+      toast.error("Failed to create profile!");
+    }
+  };
+
+  return (
+    <div className={styles.createProfileContainer}>
+      <div className={styles.formCard}>
+        <h2 className={styles.title}>Create Your Profile</h2>
+        <p className={styles.subtitle}>
+          Complete your information to continue using Medicare services.
+        </p>
+
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          {/* Name fields */}
+          <div className={styles.row}>
+            <div className={styles.formGroup}>
+              <label>First Name</label>
+              <input
+                type="text"
+                {...register("firstName")}
+                placeholder="John"
+                className={errors.firstName ? styles.errorInput : ""}
+              />
+              <p className={styles.errorMsg}>{errors.firstName?.message}</p>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label>Last Name</label>
+              <input
+                type="text"
+                {...register("lastName")}
+                placeholder="Doe"
+                className={errors.lastName ? styles.errorInput : ""}
+              />
+              <p className={styles.errorMsg}>{errors.lastName?.message}</p>
+            </div>
+          </div>
+
+          {/* DOB and Age */}
+          <div className={styles.row}>
+            <div className={styles.formGroup}>
+              <label>Date of Birth</label>
+              <input
+                type="date"
+                {...register("dateOfBirth")}
+                className={errors.dateOfBirth ? styles.errorInput : ""}
+              />
+              <p className={styles.errorMsg}>{errors.dateOfBirth?.message}</p>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label>Age</label>
+              <input
+                type="number"
+                {...register("age")}
+                placeholder="33"
+                className={errors.age ? styles.errorInput : ""}
+              />
+              <p className={styles.errorMsg}>{errors.age?.message}</p>
+            </div>
+          </div>
+
+          {/* Contact info */}
+          <div className={styles.row}>
+            <div className={styles.formGroup}>
+              <label>Phone Number</label>
+              <input
+                type="text"
+                {...register("phoneNumber")}
+                placeholder="9876543210"
+                className={errors.phoneNumber ? styles.errorInput : ""}
+              />
+              <p className={styles.errorMsg}>{errors.phoneNumber?.message}</p>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label>Blood Group</label>
+              <select {...register("bloodGroup")}>
+                <option value="">Select</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+              <p className={styles.errorMsg}>{errors.bloodGroup?.message}</p>
+            </div>
+          </div>
+
+          {/* Profile picture */}
+          <div className={styles.formGroup}>
+            <label>Profile Picture (URL)</label>
+            <input
+              type="url"
+              {...register("profilePicture")}
+              placeholder="https://example.com/john.jpg"
+              className={errors.profilePicture ? styles.errorInput : ""}
+            />
+            <p className={styles.errorMsg}>{errors.profilePicture?.message}</p>
+          </div>
+
+          <button
+            type="submit"
+            className={styles.submitBtn}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Creating..." : "Create Profile"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default CreateProfile;

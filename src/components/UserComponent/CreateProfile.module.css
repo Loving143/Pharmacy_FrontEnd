@@ -1,0 +1,95 @@
+.createProfileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(120deg, #e0f7fa, #ffffff);
+}
+
+.formCard {
+  background: white;
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 480px;
+  max-width: 90%;
+}
+
+.title {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.formGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+}
+
+.errorInput {
+  border-color: #e63946;
+}
+
+.errorMsg {
+  color: #e63946;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.submitBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #0056b3;
+}
+
+.submitBtn:disabled {
+  background-color: #ccc;
+}

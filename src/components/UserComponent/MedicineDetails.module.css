@@ -1,0 +1,90 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.card {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 20px;
+  width: 450px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: scaleUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.icon {
+  font-size: 70px;
+  color: #16a34a;
+  margin-bottom: 10px;
+}
+
+.desc {
+  color: #555;
+  font-size: 17px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 25px 0;
+}
+
+.addToCart {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.addToCart:hover {
+  background-color: #1f8f3c;
+}
+
+.back {
+  background-color: #e8e8e8;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  color: #333;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back:hover {
+  background-color: #dcdcdc;
+}
+
+.notFound {
+  text-align: center;
+  padding: 100px;
+  font-size: 20px;
+  color: #555;
+}

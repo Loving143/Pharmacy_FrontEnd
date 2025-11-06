@@ -1,0 +1,197 @@
+/* ====================== */
+/*      Main Layout       */
+/* ====================== */
+
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+/* Card Wrapper */
+.signupCard {
+  display: flex;
+  flex-direction: row;
+  width: 1200px;
+  height: 600px;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  background: white;
+}
+
+/* ====================== */
+/*  Left Modern Section   */
+/* ====================== */
+.imageContainer {
+  flex: 1;
+  background: linear-gradient(135deg, #009970, #00c49a);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageContainer::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -30%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 70%
+  );
+  transform: rotate(15deg);
+}
+
+/* Left content */
+.welcomeContent {
+  text-align: center;
+  z-index: 1;
+}
+
+.welcomeIcon {
+  font-size: 60px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.welcomeTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.welcomeSubtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* ====================== */
+/*    Right Form Section  */
+/* ====================== */
+
+.formContainer {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 700;
+  color: #009970;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+.inputField {
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.btnCustom {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #009970;
+  border: none;
+  margin-top: 15px;
+}
+
+.btnCustom:hover {
+  background-color: #007b5e;
+}
+
+/* ====================== */
+/*    Social Login Btns   */
+/* ====================== */
+
+.socialLogin {
+  margin-top: 25px;
+}
+
+.socialBtn {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.google:hover {
+  background-color: #f7f7f7;
+}
+
+.facebook:hover {
+  background-color: #eef3ff;
+}
+
+/* ====================== */
+/* Responsive adjustments */
+/* ====================== */
+
+@media (max-width: 992px) {
+  .signupCard {
+    width: 95%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .signupCard {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .imageContainer {
+    height: 250px;
+  }
+  .redirectLogin {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.redirectText {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+}
+
+.loginLink {
+  color: #007f66; /* greenish tone matching UI */
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.loginLink:hover {
+  color: #005f4e;
+  text-decoration: underline;
+}
+
+
+
+}

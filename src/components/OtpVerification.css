@@ -1,0 +1,113 @@
+.otp-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #e0f7ef, #f4fff9);
+}
+
+.otp-card {
+  background: #fff;
+  border-radius: 25px;
+  padding: 60px 50px;
+  text-align: center;
+  width: 520px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.otp-card:hover {
+  transform: scale(1.02);
+}
+
+.pharmacy-logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.pharmacy-title {
+  color: #018c75;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.pharmacy-subtitle {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.otp-title {
+  color: #018c75;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.otp-subtitle {
+  color: #777;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.otp-input-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.otp-input {
+  width: 55px;
+  height: 60px;
+  text-align: center;
+  border: 2px solid #018c75;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: #00b894;
+  box-shadow: 0 0 10px #00b89466;
+}
+
+.verify-btn {
+  background: #018c75;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.verify-btn:hover {
+  background: #00b894;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(1, 140, 117, 0.3);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.resend-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.resend-link {
+  color: #018c75;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline;
+}
