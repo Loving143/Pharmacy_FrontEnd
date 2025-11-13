@@ -21,18 +21,35 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleUp {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .icon {
   font-size: 70px;
   color: #16a34a;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
   margin-bottom: 10px;
 }
 
@@ -44,10 +61,62 @@
 }
 
 .price {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   color: #007bff;
-  margin: 25px 0;
+  margin: 15px 0;
+}
+
+.priceLabel {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.quantityControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0 15px;
+}
+
+.qtyBtn {
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.qtyBtn:hover {
+  background-color: #d6d6d6;
+  transform: scale(1.1);
+}
+
+.qtyValue {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+  min-width: 40px;
+  text-align: center;
+}
+
+.totalPrice {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 25px;
+}
+
+.totalPrice span {
+  color: #16a34a;
 }
 
 .addToCart {
@@ -61,10 +130,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .addToCart:hover {
   background-color: #1f8f3c;
+  transform: translateY(-2px);
 }
 
 .back {
@@ -76,6 +147,11 @@
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
 }
 
 .back:hover {

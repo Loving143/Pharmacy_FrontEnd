@@ -10,11 +10,10 @@ import {
   FaBoxOpen,
   FaUserPlus,
   FaSearch,
-  FaPills,
-  FaEye
 } from "react-icons/fa";
 import UserLayout from "./UserLayout";
 import styles from "./Userdashboard.module.css";
+import MedicineSearch from "./MedicineSearch"; // ✅ import new component
 
 const UserDashboard = () => {
   const [userProfile, setUserProfile] = useState(null);
@@ -58,24 +57,13 @@ const UserDashboard = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchQuery.trim() !== "") {
-      setShowResults(true);
-    } else {
-      setShowResults(false);
-    }
+    if (searchQuery.trim() !== "") setShowResults(true);
   };
 
   const handleBackToDashboard = () => {
     setSearchQuery("");
     setShowResults(false);
   };
-
-  const medicines = [
-    { name: "Paracetamol", price: "₹25", desc: "Pain reliever and fever reducer." },
-    { name: "Amoxicillin", price: "₹90", desc: "Used to treat bacterial infections." },
-    { name: "Cetirizine", price: "₹50", desc: "For allergy and cold relief." },
-    { name: "Dolo 650", price: "₹30", desc: "For headache, cold, and mild pain." },
-  ];
 
   if (loading) return <div className={styles.loading}>Loading dashboard...</div>;
 
@@ -94,7 +82,7 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      {/* 🔍 Stylish Search Box */}
+      {/* 🔍 Search Box */}
       <div className={styles.searchWrapper}>
         <form onSubmit={handleSearch} className={styles.searchForm}>
           <div className={styles.searchBoxAligned}>
@@ -113,7 +101,7 @@ const UserDashboard = () => {
         </form>
       </div>
 
-      {/* 🩺 Conditional Section */}
+      {/* 🩺 Main Content */}
       {!userProfile ? (
         <div className={styles.noProfile}>
           <FaUserPlus size={60} color="#007bff" />
@@ -127,7 +115,7 @@ const UserDashboard = () => {
           </button>
         </div>
       ) : !showResults ? (
-        // Default Dashboard Cards
+        // Default Dashboard
         <div className={styles.cards}>
           <div className={`${styles.card} ${styles.cardBlue}`}>
             <FaFilePrescription size={40} />
@@ -155,32 +143,8 @@ const UserDashboard = () => {
           </div>
         </div>
       ) : (
-        <>
-          {/* 💊 Medicine Search Results */}
-          <div className={styles.medicineResults}>
-            {medicines.map((med, index) => (
-              <div key={index} className={styles.medicineCard}>
-                <FaPills className={styles.pillIcon} />
-                <h3>{med.name}</h3>
-                <p>{med.desc}</p>
-                <span className={styles.price}>{med.price}</span>
-                <button
-            className={styles.viewButton}
-            onClick={() => navigate(`/medicine/${med.id}`, { state: med })}
-          >
-            <FaEye className={styles.eyeIcon} /> View
-          </button>
-              </div>
-            ))}
-          </div>
-
-          {/* ✅ Back to Dashboard Button (properly centered below results) */}
-          <div className={styles.backButtonContainer}>
-            <button className={styles.backButton} onClick={handleBackToDashboard}>
-              ← Back to Dashboard
-            </button>
-          </div>
-        </>
+        // ✅ Medicine Search Results Component
+        <MedicineSearch query={searchQuery} onBack={handleBackToDashboard} />
       )}
     </UserLayout>
   );

@@ -1,48 +1,136 @@
-import React, { useContext } from "react";
-import { CartContext } from "../context/CartContext";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import styles from "./cartPage.module.css";
+import { FaTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
+import AuthService from "../Services/AuthService";
 
 const CartPage = () => {
-  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    fetchCartItems();
+  }, []);
+
+  const fetchCartItems = async () => {
+    try {
+      const response = await AuthService.getCartItems();
+      setCartItems(response.data);
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+    }
+  };
+
+  const proceedToCheckOut = async()=>{
+    try{
+      await AuthService.checkOut();
+      console.log("Cart CheckedOut")
+    }catch(error){
+      console.error("Error removing item:", error);
+    }
+  }
+
+  const handleRemove = async (id) => {
+    try {
+      await AuthService.removeFromCart(id);
+      setCartItems((prev) => prev.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error("Error removing item:", error);
+    }
+  };
+
+  const handleQuantityChange = async (id, action) => {
+    try {
+      const updatedItems = cartItems.map((item) => {
+        if (item.id === id) {
+          const newQuantity =
+            action === "inc"
+              ? item.quantity + 1
+              : item.quantity > 1
+              ? item.quantity - 1
+              : 1;
+
+          const newFinalPrice = newQuantity * (item.price - item.discount);
+          return { ...item, quantity: newQuantity, finalPrice: newFinalPrice };
+        }
+        return item;
+      });
+
+      setCartItems(updatedItems);
+      await AuthService.updateCartQuantity(id, action);
+    } catch (error) {
+      console.error("Error updating quantity:", error);
+    }
+  };
+
+  const totalAmount = cartItems.reduce((sum, item) => sum + item.finalPrice, 0);
 
   return (
-    <Container className="mt-5">
-      <h2 className="fw-bold">Order Summary</h2>
+    <div className={styles.cartWrapper}>
+      <div className={styles.cartContainer}>
+        <h2 className={styles.title}>🛒 Shopping Cart</h2>
 
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        cartItems.map((item) => (
-          <Card key={item.id} className="mb-3">
-            <Card.Body>
-              <Row className="align-items-center">
-                <Col md={6}>
-                  <Card.Title>{item.name}</Card.Title>
-                  <Card.Text>Price: ₹{item.price}</Card.Text>
-                </Col>
-                <Col md={6} className="d-flex align-items-center justify-content-end">
-                <div className="quantity-controls">
-                
-  <button className="quantity-btn" onClick={() => removeFromCart(item.id)}>-</button>
-  <span className="quantity">{item.quantity}</span>
-  <button className="quantity-btn" onClick={() => addToCart(item)}>+</button>
-</div>
+        {cartItems.length === 0 ? (
+          <p className={styles.empty}>Your cart is empty.</p>
+        ) : (
+          <>
+            <div className={styles.cartList}>
+              {cartItems.map((item) => (
+                <div key={item.id} className={styles.cartCard}>
+                  {/* Image Section */}
+                  <div className={styles.imageContainer}>
+                    <img
+                      src={item.imageUrl}
+                      alt={item.medicineName}
+                      className={styles.productImage}
+                    />
+                  </div>
 
-                </Col>
-              </Row>
-            </Card.Body>
-          </Card>
-        ))
-      )}
+                  {/* Details Section */}
+                  <div className={styles.detailsContainer}>
+                    <h3 className={styles.productName}>{item.medicineName}</h3>
+                    <p className={styles.supplier}>Sold by: {item.supplierName}</p>
+                    <div className={styles.priceRow}>
+                      <span className={styles.finalPrice}>₹{item.finalPrice.toFixed(2)}</span>
+                      <span className={styles.originalPrice}>₹{item.price}</span>
+                      <span className={styles.discount}>
+                        ₹{item.discount} OFF
+                      </span>
+                    </div>
 
-      {/* Proceed to Checkout Button */}
-      {cartItems.length > 0 && (
-        <Button variant="primary" as={Link} to="/checkout">
-          Proceed to Checkout
-        </Button>
-      )}
-    </Container>
+                    <div className={styles.quantityControl}>
+                      <button
+                        onClick={() => handleQuantityChange(item.id, "dec")}
+                      >
+                        <FaMinus />
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        onClick={() => handleQuantityChange(item.id, "inc")}
+                      >
+                        <FaPlus />
+                      </button>
+                    </div>
+
+                    <button
+                      className={styles.removeBtn}
+                      onClick={() => handleRemove(item.id)}
+                    >
+                      <FaTrashAlt /> Remove
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.totalSection}>
+              <h3>
+                Total Amount: <span>₹{totalAmount.toFixed(2)}</span>
+              </h3>
+              <button className={styles.checkoutBtn} onClick={()=>proceedToCheckOut()}>Proceed to Checkout</button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

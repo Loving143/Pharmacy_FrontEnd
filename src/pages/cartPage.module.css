@@ -1,0 +1,292 @@
+.cartWrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #f4f6f8;
+  min-height: 90vh;
+  padding: 2rem 0;
+}
+
+.cartContainer {
+  width: 75%;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #00796b;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.8rem;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+/* 🛒 Cart List */
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* 🧩 Each Cart Item */
+.cartCard {
+  display: flex;
+  align-items: flex-start;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cartCard:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🖼️ Image Section */
+.imageContainer {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-right: 1.2rem;
+}
+
+.imageContainer img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+/* 📦 Item Info */
+.itemInfo {
+  flex: 1;
+}
+
+.itemInfo h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: #004d40;
+}
+
+.supplier {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.6rem;
+}
+
+.finalPrice {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.discount {
+  color: #c62828;
+  font-weight: 600;
+}
+
+/* 🧮 Quantity + Remove section */
+.itemActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* Quantity Controls */
+.quantityControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e0f2f1;
+  border-radius: 25px;
+  padding: 0.3rem 0.6rem;
+  gap: 0.6rem;
+  width: fit-content;
+  min-width: 110px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.quantityControl button {
+  background: #00796b;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.quantityControl button:hover {
+  background: #004d40;
+  transform: scale(1.1);
+}
+
+.quantityControl span {
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  min-width: 25px;
+}
+
+/* 🗑️ Remove Button */
+.removeBtn {
+  background: #ffebee;
+  border: 1px solid #e53935;
+  color: #c62828;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.removeBtn:hover {
+  background: #e53935;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(229, 57, 53, 0.3);
+}
+
+/* 💰 Total Section */
+.totalSection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #00796b;
+  text-align: right;
+}
+
+.totalSection h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.totalSection span {
+  font-weight: bold;
+  color: #00796b;
+}
+
+.checkoutBtn {
+  padding: 0.9rem 1.8rem;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.checkoutBtn:hover {
+  background-color: #004d40;
+  transform: translateY(-1px);
+}
+
+/* ---------------------------- */
+/* 🔻 RESPONSIVE STYLING BELOW */
+/* ---------------------------- */
+@media (max-width: 768px) {
+  .cartContainer {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .cartCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .imageContainer {
+    margin: 0 0 1rem 0;
+  }
+
+  .itemActions {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .checkoutBtn {
+    width: 100%;
+  }
+
+  .totalSection {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartContainer {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .cartCard {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .itemInfo h3 {
+    font-size: 1rem;
+  }
+
+  .quantityControl button {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .checkoutBtn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+}
