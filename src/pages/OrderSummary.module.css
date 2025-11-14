@@ -1,0 +1,208 @@
+/* ===========================
+   Order Summary Modern Design
+   =========================== */
+
+.pageBackground {
+  background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 50%, #e8f5e9 100%);
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Order Summary Card */
+.orderCard {
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  padding: 3rem 2.5rem;
+  width: 90%;
+  max-width: 850px;
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.9s ease forwards;
+}
+
+.orderCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.headerIcon {
+  color: #009688;
+  font-size: 2.4rem;
+  margin-right: 0.8rem;
+}
+
+.headerTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #004d40;
+  letter-spacing: 0.4px;
+}
+
+/* User Info */
+.userSection {
+  margin-bottom: 1.8rem;
+  background: #f7fdfc;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.userSection p {
+  font-size: 1.05rem;
+  color: #333;
+  margin: 6px 0;
+}
+
+.statusText {
+  color: #fbc02d;
+  font-weight: 600;
+}
+
+/* Billing / Summary Box */
+.summaryBox {
+  background: linear-gradient(145deg, #fafafa, #f5f5f5);
+  border-radius: 16px;
+  padding: 1.8rem;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.summaryBox:hover {
+  transform: scale(1.01);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.summaryBox h2 {
+  font-size: 1.35rem;
+  color: #004d40;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 0.6rem;
+}
+
+/* Summary Rows */
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  font-size: 1.05rem;
+  color: #333;
+  border-bottom: 1px dashed #ddd;
+}
+
+.summaryRow:last-child {
+  border-bottom: none;
+}
+
+.discount {
+  color: #e53935;
+  font-weight: 600;
+}
+
+.total {
+  font-weight: 700;
+  color: #212121;
+  border-top: 2px solid #b2dfdb;
+  padding-top: 0.8rem;
+}
+
+/* Final Amount Highlight */
+.finalAmount {
+  font-weight: 800;
+  color: #00695c;
+  font-size: 1.4rem;
+  border-top: 2px solid #009688;
+  padding-top: 1rem;
+  background: #e0f2f1;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 1.2rem;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Payment Button */
+.paymentButton {
+  background: linear-gradient(135deg, #009688, #00796b);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 350px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 150, 136, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 auto;
+}
+
+.paymentButton:hover {
+  background: linear-gradient(135deg, #26a69a, #009688);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 150, 136, 0.4);
+}
+
+.paymentButton:active {
+  transform: scale(0.98);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .orderCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .headerTitle {
+    font-size: 1.8rem;
+  }
+
+  .paymentButton {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerIcon {
+    font-size: 2rem;
+  }
+
+  .headerTitle {
+    font-size: 1.5rem;
+  }
+
+  .summaryBox h2 {
+    font-size: 1.2rem;
+  }
+}

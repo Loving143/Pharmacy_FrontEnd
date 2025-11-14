@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from "./cartPage.module.css";
 import { FaTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
 import AuthService from "../Services/AuthService";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCartItems();
@@ -23,6 +25,7 @@ const CartPage = () => {
     try{
       await AuthService.checkOut();
       console.log("Cart CheckedOut")
+      navigate("/order-summary")
     }catch(error){
       console.error("Error removing item:", error);
     }

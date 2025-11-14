@@ -17,6 +17,7 @@ import UserDashboard from './components/UserComponent/UserDashBoard';
 import ViewProfile from './components/UserComponent/ViewProfile';
 import EditProfile from './components/UserComponent/EditProfile';
 import MedicineDetails from './components/UserComponent/MedicineDetails';
+import OrderSummary from './pages/OrderSummary'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
                 <Route path= "/edit-profile" element={<EditProfile />} />
                 <Route path= "/user-dashboard" element={<UserDashboard />} />
                 <Route path="/medicine/:id" element={<MedicineDetails />} />
+                 <Route path="/order-summary" element={<OrderSummary />} />
     </Routes>
     </CartProvider>
     </AuthProvider>

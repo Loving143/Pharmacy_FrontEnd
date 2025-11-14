@@ -89,6 +89,15 @@ checkOut: () => {
   );
 },
 
+getOrderSummary:()=>{
+  const token =localStorage.getItem("authToken");
+return api.get(`http://localhost:8043/cart/fetch/orderSummary`,
+{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+},
 
 }
 
