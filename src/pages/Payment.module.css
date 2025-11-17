@@ -1,0 +1,40 @@
+.paymentContainer {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #065f46;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #f1fdf7;
+  border-left: 6px solid #059669;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  margin-bottom: 12px;
+}
+
+.payBtn {
+  width: 100%;
+  padding: 16px;
+  background: #059669;
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.payBtn:hover {
+  background: #047857;
+}

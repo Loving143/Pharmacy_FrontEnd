@@ -1,0 +1,394 @@
+/* =============================
+   ADDRESS PAGE - CSS MODULE
+   Clean modern pharmacy layout
+   ============================= */
+
+
+
+/* Add Address Button */
+.addBtn {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.addBtn:hover {
+  background-color: #1b5e20;
+}
+
+/* Address Table Style (Amazon-like) */
+.addressList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.addressRow {
+  background: red;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.addressRow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.rowLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.addressName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.addressPhone {
+  font-size: 14px;
+  color: #555;
+}
+
+.addressDetails {
+  font-size: 13px;
+  color: #666;
+}
+
+.rowActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.editBtn,
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.editBtn:hover {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+.deleteBtn:hover {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* =============================
+      ADDRESS FORM CARD inline
+   ============================= */
+
+/* ---------------------------------------
+   Full-Screen Wrapper (center form nicely)
+-----------------------------------------*/
+.formWrapper {
+  width: 100%;
+  min-height: calc(100vh - 70px); /* deduct navbar height */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* ⬅ top-align instead of center */
+  padding-top: 40px;         /* small spacing */
+  background: rgba(0, 0, 0, 0.05);
+}
+
+
+/* ---------------------------------------
+   Card Styling
+-----------------------------------------*/
+.formCard {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 38px 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e3e3e3;
+  animation: fadeIn 0.3s ease-out;
+  font-family: "Inter", sans-serif;
+}
+
+/* Smooth appear animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------
+   Form Title
+-----------------------------------------*/
+.formTitle {
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  text-align: center;
+  color: #222;
+}
+
+/* ---------------------------------------
+   Input Grid
+-----------------------------------------*/
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGrid input {
+  padding: 14px 16px;
+  border: 1.6px solid #cfcfcf;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.2s ease-in-out;
+  background: #fafafa;
+}
+
+/* Focused Input Effect */
+.formGrid input:focus {
+  border-color: #009688;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(0, 150, 136, 0.4);
+  outline: none;
+}
+
+/* ---------------------------------------
+   Action Buttons
+-----------------------------------------*/
+.formActions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveBtn {
+  background: #009688;
+  color: white;
+  padding: 13px 34px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.saveBtn:hover {
+  background: #007f75;
+}
+
+.cancelBtn {
+  background: #dcdcdc;
+  color: #333;
+  padding: 13px 32px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.cancelBtn:hover {
+  background: #c7c7c7;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .addressRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .rowActions {
+    align-self: flex-end;
+  }
+}
+
+
+/* Updated form container width */
+.addressFormContainer {
+  max-width: 650px !important;
+}
+
+/* Force exactly 3 cards per row */
+.cardsContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  padding: 20px 40px;  /* Controls side spacing */
+}
+
+
+/* ----------------------------
+   Center a single card (only 1)
+----------------------------- */
+.cardsContainer > .addressCard:only-child {
+  grid-column: 2 / span 1; /* place at center column */
+}
+
+
+
+.addressCard {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0px 4px 14px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.addressCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Highlight when default */
+.defaultCard {
+  border-color: #4caf50;
+  background: #e9f7ec;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.defaultBadge {
+  background: #4caf50;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Action Button layout */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Set Default Button */
+.defaultBtn {
+  background: #2ee4ad;
+  color: white;
+  /* padding: 2px 14px; */
+  flex: 0.5;
+  margin-right: 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.defaultBtn:hover {
+  background: #0d47a1;
+}
+
+/* Edit Button */
+.editBtn {
+  background: #ffa726;
+  color: white;
+  flex:0.2;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: 0.3s;
+}
+
+.editBtn:hover {
+  background: #fb8c00;
+}
+
+/* Delete Button */
+.deleteBtn {
+  background: #e53935;
+  color: white;
+  flex:0.2;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deleteBtn:hover {
+  background: #b71c1c;
+}
+
+.addressDetails {
+  font-size: 1.8rem;       /* Bigger text */
+  font-weight: 600;        /* Bold text */
+  color: #2c3e50;          /* Dark, strong color */
+  line-height: 1.9;        /* Better spacing */
+  padding: 3px 10px;         /* Add space inside card */
+}
+
+.addressDetails p {
+  margin: 2px 0;           /* Space between items */
+}
+
+
+/* Default Green Card */
+.defaultCard {
+  background: #d4f8d4;
+  border-left: 6px solid #22c55e;
+}
+
+/* Deliver Here Button */
+.deliverBtn {
+  background: #15803d;
+  color: white;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  flex: 1;
+}
+
+
+/* Make form column narrower inside large screen */
+@media (min-width: 768px) {
+  .addressPageContainer {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}

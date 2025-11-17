@@ -178,6 +178,39 @@
   transform: scale(0.98);
 }
 
+.addressBox {
+  width: 100%;
+  background: #eefdf7;
+  padding: 20px 25px;
+  border-radius: 12px;
+  border-left: 6px solid #0b7a5b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  /* This makes it stretch FULL WIDTH */
+  display: block;
+}
+
+
+.addressBox h2 {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0b7a5b;
+}
+
+.addressBox p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 6px 0;
+  font-weight: 500;
+}
+
+.addressBox strong {
+  color: #0b4d3c;
+}
+
+
+
 /* Responsiveness */
 @media (max-width: 768px) {
   .orderCard {

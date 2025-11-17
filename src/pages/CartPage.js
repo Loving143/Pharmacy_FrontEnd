@@ -25,7 +25,7 @@ const CartPage = () => {
     try{
       await AuthService.checkOut();
       console.log("Cart CheckedOut")
-      navigate("/order-summary")
+      navigate("/address")
     }catch(error){
       console.error("Error removing item:", error);
     }

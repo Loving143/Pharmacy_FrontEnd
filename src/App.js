@@ -18,6 +18,8 @@ import ViewProfile from './components/UserComponent/ViewProfile';
 import EditProfile from './components/UserComponent/EditProfile';
 import MedicineDetails from './components/UserComponent/MedicineDetails';
 import OrderSummary from './pages/OrderSummary'
+import AddressPage from './pages/AddressPage';
+import Payment from './pages/Payment';
 
 function App() {
   return (
@@ -38,7 +40,10 @@ function App() {
                 <Route path= "/edit-profile" element={<EditProfile />} />
                 <Route path= "/user-dashboard" element={<UserDashboard />} />
                 <Route path="/medicine/:id" element={<MedicineDetails />} />
+                <Route path="/cart-summary" element={<OrderSummary />} />
+                 <Route path="/address" element={<AddressPage />} />
                  <Route path="/order-summary" element={<OrderSummary />} />
+                 <Route path="/payment" element={<Payment />} />
     </Routes>
     </CartProvider>
     </AuthProvider>

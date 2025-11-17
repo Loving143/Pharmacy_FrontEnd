@@ -56,6 +56,23 @@ const OrderSummary = () => {
           </p>
         </div>
 
+        {/* Delivery Address */}
+<div className={styles.addressBox}>
+  <h2>Delivering To</h2>
+
+  <p><strong>Name: </strong>{order.deliveryAddress?.name}</p>
+  <p><strong>House: </strong>{order.deliveryAddress?.house}</p>
+  <p><strong>Area: </strong>{order.deliveryAddress?.area}</p>
+  <p><strong>Landmark: </strong>{order.deliveryAddress?.landmark}</p>
+  <p><strong>City: </strong>{order.deliveryAddress?.city}</p>
+  <p><strong>Mobile:</strong> {order.deliveryAddress?.mobile}</p>
+
+  {order.deliveryAddress?.landmark && (
+    <p><strong>Landmark:</strong> {order.deliveryAddress.landmark}</p>
+  )}
+</div>
+
+
         {/* Summary */}
         <div className={styles.summaryBox}>
           <h2>Billing Details</h2>

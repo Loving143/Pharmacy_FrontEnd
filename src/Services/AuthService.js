@@ -91,6 +91,7 @@ checkOut: () => {
 
 getOrderSummary:()=>{
   const token =localStorage.getItem("authToken");
+  console.log(token+" I am getting the token ");
 return api.get(`http://localhost:8043/cart/fetch/orderSummary`,
 {
     headers: {
@@ -98,6 +99,65 @@ return api.get(`http://localhost:8043/cart/fetch/orderSummary`,
     },
   });
 },
+
+fetchAddresses:()=>{
+  const token = localStorage.getItem("authToken");
+  return api.get(`http://localhost:8043/address/list`,
+{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+},
+saveAddress:(data)=>{
+  const token = localStorage.getItem("authToken");
+  return api.post(`http://localhost:8043/address/add`,data,{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+},
+
+makeDefaultAddress: (id) => {
+  const token = localStorage.getItem("authToken");
+  return api.put(`http://localhost:8043/address/makeDefault/${id}`, {}, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+},
+
+deleteAddress:(id)=>{
+const token = localStorage.getItem("authToken");
+  return api.delete(`http://localhost:8043/address/delete/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+},
+
+editAddress:(id,data)=>{
+const token = localStorage.getItem("authToken");
+  return api.put(`http://localhost:8043/address/update/${id}`, data,{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+},
+
+setAddressId: (id) => {
+  const token = localStorage.getItem("authToken");
+  return api.put(
+    `/cart/setAddressId/${id}`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+}
+
 
 }
 
