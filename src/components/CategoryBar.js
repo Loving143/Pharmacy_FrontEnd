@@ -38,7 +38,6 @@ const CategoryBar = () => {
         </Nav>
       </Container>
     </Navbar>
-    <h2 className="text-center my-4">Pharmacy Products</h2>
     <ItemList />
     </>
   );

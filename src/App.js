@@ -20,6 +20,7 @@ import MedicineDetails from './components/UserComponent/MedicineDetails';
 import OrderSummary from './pages/OrderSummary'
 import AddressPage from './pages/AddressPage';
 import Payment from './pages/Payment';
+import Homepage from './pages/Homepage';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
                 <Route path= "/signup" element={<Signup />} />
                 <Route path= "/otp-verification" element={<OtpVerification />} />
                 <Route path= "/login" element={<Login />} />
-                <Route path= "/" element={<CategoryBar/>} />
+                <Route path= "/" element={<Homepage/>} />
                 <Route path= "/contact" element={<ContactUs />} />
                 <Route path= "/product/:id" element={<ProductDetails />} />
                 <Route path= "/cart" element={<CartPage />} />

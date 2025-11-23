@@ -1,24 +1,36 @@
 .category-bar {
-    background-color: rgb(245, 149, 7);
-    padding: 10px 0;
-  }
-  
-  .category-nav .nav-link {
-    color: white;
+    background: white;
+    padding: 12px 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid;
+    border-image: linear-gradient(135deg, #27ae60 0%, #58d68d 100%) 1;
+}
+
+.category-nav .nav-link {
+    color: #2c3e50;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 15px;
-    transition: color 0.3s;
-  }
-  
-  .category-nav .nav-link:hover {
-    color: #ffd700; /* Golden hover effect */
-  }
-  
-  .category-nav .nav-link svg {
-    font-size: 20px;
-  }
-  
+    margin: 0 12px;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.category-nav .nav-link:hover {
+    background: linear-gradient(135deg, #27ae60 0%, #58d68d 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.category-nav .nav-link svg {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.category-nav .nav-link:hover svg {
+    transform: scale(1.1);
+}

@@ -1,0 +1,564 @@
+.container {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  color: #1a5276;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(135deg, #27ae60 0%, #58d68d 100%);
+  border-radius: 4px;
+}
+
+/* Tabs Styles - Fresh Green Theme */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 14px 32px;
+  border: none;
+  background: #e8f5e8;
+  color: #27ae60;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+}
+
+.tab:hover {
+  background: #27ae60;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+  border-color: #27ae60;
+}
+
+.activeTab {
+  background: #27ae60;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+  border-color: #27ae60;
+}
+
+/* Grid Styles */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* Card Styles - Fresh Green Theme */
+.card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #e8f5e8;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(135deg, #27ae60 0%, #58d68d 100%);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(39, 174, 96, 0.2);
+  border-color: #27ae60;
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.badge {
+  background: linear-gradient(135deg, #27ae60 0%, #58d68d 100%);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+}
+
+.rating {
+  color: #f39c12;
+  font-weight: 700;
+  font-size: 1rem;
+  background: #fff3cd;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ffeaa7;
+}
+
+/* Image Styles */
+.image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.imagePlaceholder {
+  font-size: 4.5rem;
+  background: linear-gradient(135deg, #e8f5e8 0%, #d4efdf 100%);
+  border-radius: 16px;
+  padding: 35px;
+  display: inline-block;
+  border: 3px solid #27ae60;
+  transition: all 0.3s ease;
+}
+
+.card:hover .imagePlaceholder {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #d4efdf 0%, #a9dfbf 100%);
+}
+
+/* Card Content */
+.cardContent {
+  text-align: center;
+}
+
+.medicineName {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #27ae60 0%, #2c3e50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  color: #5d6d7e;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 18px 0;
+  border-top: 2px solid #e8f5e8;
+  border-bottom: 2px solid #e8f5e8;
+}
+
+.price {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #27ae60;
+  text-shadow: 0 2px 4px rgba(39, 174, 96, 0.2);
+}
+
+.sales {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #ecf0f1;
+  padding: 6px 12px;
+  border-radius: 15px;
+}
+
+/* Button Styles - Fresh Green Theme */
+.cartBtn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #27ae60 0%, #58d68d 100%);
+  color: white;
+}
+
+.cartBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+  background: linear-gradient(135deg, #229954 0%, #52be80 100%);
+}
+
+.cartIcon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.cartBtn:hover .cartIcon {
+  transform: scale(1.2);
+}
+
+/* Hot Selling Section - Completely Redesigned */
+.hotSellingSection {
+  margin-bottom: 60px;
+}
+
+.hotSellingSection .sectionTitle {
+  color: #c0392b;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 800;
+  position: relative;
+}
+
+.hotSellingSection .sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Hot Selling Grid */
+.hotSellingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+/* Hot Selling Cards */
+.hotSellingCard {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%);
+  border-radius: 20px;
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(231, 76, 60, 0.15);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #ffebee;
+}
+
+.hotSellingCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.hotSellingCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(231, 76, 60, 0.25);
+  border-color: #e74c3c;
+}
+
+/* Hot Ribbon */
+.hotRibbon {
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 8px 40px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+  z-index: 2;
+}
+
+/* Hot Card Content */
+.hotCardContent {
+  padding: 30px 25px 25px;
+  text-align: center;
+  position: relative;
+}
+
+/* Fire Icon */
+.fireIcon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Hot Medicine Info */
+.hotMedicineName {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #e74c3c 0%, #2c3e50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hotDescription {
+  color: #7f8c8d;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
+/* Hot Price Section */
+.hotPriceSection {
+  background: linear-gradient(135deg, #fff0f0 0%, #ffe6e6 100%);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 2px solid #ffcdd2;
+}
+
+.hotPrice {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #e74c3c;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+.hotSales {
+  color: #e74c3c;
+  font-size: 1rem;
+  font-weight: 700;
+  background: rgba(231, 76, 60, 0.1);
+  padding: 6px 15px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Hot Buy Button */
+.hotBuyBtn {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hotBuyBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.hotBuyBtn:hover::before {
+  left: 100%;
+}
+
+.hotBuyBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(231, 76, 60, 0.5);
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+}
+
+.hotBuyBtn span {
+  position: relative;
+  z-index: 1;
+}
+
+.hotArrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.hotBuyBtn:hover .hotArrow {
+  transform: translateX(8px);
+}
+
+/* Hot Selling Badge */
+.hotTrendingBadge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(243, 104, 224, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.7rem;
+  }
+
+  .tabs {
+    gap: 8px;
+  }
+
+  .tab {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .imagePlaceholder {
+    font-size: 3.5rem;
+    padding: 25px;
+  }
+
+  .hotSellingSection .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .hotSellingGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .hotSellingCard {
+    margin: 0 10px;
+  }
+  
+  .hotCardContent {
+    padding: 25px 20px 20px;
+  }
+  
+  .hotMedicineName {
+    font-size: 1.4rem;
+  }
+  
+  .hotPrice {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab {
+    width: 220px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .hotSellingSection .sectionTitle {
+    font-size: 1.6rem;
+  }
+  
+  .hotSellingCard {
+    margin: 0 5px;
+  }
+  
+  .hotCardContent {
+    padding: 20px 15px 15px;
+  }
+  
+  .hotMedicineName {
+    font-size: 1.3rem;
+  }
+}
