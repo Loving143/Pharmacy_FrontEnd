@@ -156,9 +156,63 @@ setAddressId: (id) => {
       },
     }
   );
-}
+},
 
 
-}
+/** ----------------- Medicine APIs ----------------- **/
+
+  // Fetch all categories
+  getCategories: () => {
+    return api.get(`/medicine/user/categories`)
+  },
+
+  // Fetch all subcategories
+  getSubcategories: () => {
+    return api.get(`/medicine/user/subCategories`)
+    },
+
+  // Fetch all medicines
+  getMedicines: () => {
+    const token = localStorage.getItem("authToken");
+    return api.get(`/api/medicines`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  },
+
+  // Fetch medicines by subcategory
+  getMedicinesBySubcategory: (subCatCode) => {
+    console.log(subCatCode+" This is code")
+    return api.get(`/medicine/user/fetchMedicine/${subCatCode}`)
+  },
+
+  // Search medicines by keyword (already exists, just for reference)
+  searchMedicines: (keyword) => {
+    const token = localStorage.getItem("authToken");
+    return api.get(`/medicine/search/keyword?query=${encodeURIComponent(keyword)}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  },
+
+  /** ----------------- Category / Subcategory by ID (Optional) ----------------- **/
+
+  // Fetch category by ID
+  getCategoryById: (id) => {
+    const token = localStorage.getItem("authToken");
+    return api.get(`/api/categories/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  },
+
+  // Fetch subcategory by ID
+  getSubcategoryById: (id) => {
+    const token = localStorage.getItem("authToken");
+    return api.get(`/api/subcategories/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  },
+};
+
+
+
 
 export default AuthService;

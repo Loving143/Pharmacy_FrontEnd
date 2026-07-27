@@ -40,7 +40,10 @@ const MedicineDetails = () => {
         medicineCode: medicine.medicineCode,
         quantity: quantity,
       };
-
+      const token = localStorage.getItem("authToken");
+      if(token==null){
+        navigate("/login")
+      }
       await AuthService.addToCart(payload);
 
       // Automatically go back to medicine search list after success
