@@ -1,58 +1,221 @@
-.contactPage {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #e7f8ef, #d8f5e8, #c7efdf);
-    padding: 40px 20px;
+/*
+About 135deg
+
+The 135deg is the direction, 
+not the number of gradient sections.
+0deg    /* Bottom → Top 
+45deg   /* Bottom Left → Top Right 
+90deg   /* Left → Right 
+135deg  /* Top Left → Bottom Right 
+180deg  /* Top → Bottom 
+270deg  /* Right → Left 
+360deg  /* Same as 0deg 
+*/
+/*Padding creates space inside the element, between its content and its border.
+Because of margin-bottom: 15px, there will be a 15px gap between the 
+heading and the paragraph.
+Padding = space inside the element
+Margin = space outside the element 
+*/
+/* ContactUs.module.css */
+
+.contactPage{
+  background:linear-gradient(135deg,#f5fff8 0%,#d8f8e6 30%,#b6efc9 60%,#ecfdf5 100%);
+  min-height:100vh;
+  padding:70px 35px;
 }
 
-.contactCard {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+.heading{
+  font-size:54px;
+  font-weight:800;
+  color:#198754;
+  letter-spacing:-.5px;
+  margin-bottom:10px;
+  text-align:center;
 }
 
-.contactCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+.headingDivider{
+  width:90px;
+  height:5px;
+  margin:18px auto 28px;
+  border-radius:50px;
+  background:linear-gradient(90deg,#198754,#20b26c);
 }
 
-.contactItem {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 22px;
-    font-size: 17px;
-    color: #444;
+.subHeading{
+  max-width:760px;
+  margin:auto;
+  text-align:center;
+  color:#555;
+  line-height:1.8;
+  font-size:18px;
 }
 
-.contactIcon {
-    font-size: 22px;
+.infoCard{
+  color:#fff;
+  border-radius:28px;
+  overflow:hidden;
+  background:linear-gradient(160deg,#198754,#157347,#0f5132);
+  box-shadow:0 25px 60px rgba(0,0,0,.18);
+  transition:.35s;
 }
 
-.customInput {
-    border-radius: 12px;
-    border: 1px solid #d5e8da;
-    height: 50px;
+.formCard{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);
+  border-radius:28px;
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
+  transition:.35s;
 }
 
-.customInput:focus {
-    border-color: #198754;
-    box-shadow: 0 0 8px rgba(25, 135, 84, 0.25);
+.infoCard:hover,
+.formCard:hover{
+  transform:translateY(-8px);
 }
 
-.submitBtn {
-    width: 100%;
-    height: 50px;
-    background: #198754;
-    border: none;
-    border-radius: 12px;
-    font-size: 17px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+.contactBox{
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  padding:18px;
+  margin-bottom:18px;
+  border-radius:18px;
+  transition:.3s;
 }
 
-.submitBtn:hover {
-    background: #157347;
-    transform: scale(1.02);
+.contactBox:hover{
+  background:rgba(255,255,255,.12);
 }
+
+.contactBox h5{
+  margin-bottom:6px;
+  font-weight:700;
+}
+
+.contactBox p{
+  margin:0;
+  line-height:1.6;
+}
+
+.iconCircle{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:#fff;
+  color:#198754;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  transition:.35s;
+  flex-shrink:0;
+}
+
+.contactBox:hover .iconCircle{
+  background:#20b26c;
+  color:#fff;
+  transform:scale(1.08) rotate(8deg);
+}
+
+.socialIcons{
+  display:flex;
+  gap:15px;
+}
+
+.socialCircle{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.socialCircle:hover{
+  background:#fff;
+  color:#198754;
+  transform:translateY(-4px);
+}
+
+.customInput{
+  height:56px;
+  border-radius:16px;
+  border:1px solid #d7eadc;
+  background:#f9fffb;
+  transition:.3s;
+}
+
+.customInput:hover{
+  border-color:#20b26c;
+}
+
+.customInput:focus{
+  border-color:#198754;
+  box-shadow:0 0 0 4px rgba(25,135,84,.15);
+}
+
+textarea.customInput{
+  min-height:150px;
+  resize:none;
+}
+
+.submitBtn{
+  width:100%;
+  height:58px;
+  border:none;
+  border-radius:16px;
+  font-size:18px;
+  font-weight:700;
+  background:linear-gradient(90deg,#198754,#20b26c);
+  transition:.35s;
+}
+
+.submitBtn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 30px rgba(25,135,84,.35);
+}
+
+.mapCard{
+  overflow:hidden;
+  border-radius:24px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.accordion{
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.accordion-button{
+  font-weight:600;
+}
+
+@media(max-width:991px){
+  .contactPage{
+    padding:40px 20px;
+  }
+  .heading{
+    font-size:42px;
+  }
+  .subHeading{
+    font-size:16px;
+  }
+}
+
+@media(max-width:576px){
+  .heading{
+    font-size:34px;
+  }
+  .contactBox{
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+  }
+  .socialIcons{
+    justify-content:center;
+  }
+}
+

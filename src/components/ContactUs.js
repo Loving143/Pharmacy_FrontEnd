@@ -1,36 +1,68 @@
 import React from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Card,
+  Accordion
+} from "react-bootstrap";
+
 import {
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaClock
+  FaClock,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaArrowRight
 } from "react-icons/fa";
 
 import styles from "./UserComponent/ContactUs.module.css";
 
 const ContactUs = () => {
   return (
+    /*<Container fluid>
+    The fluid prop tells Bootstrap:
+    "Take the full width of the screen."*/
+
+    /*It uses Flexbox and means:
+className="justify-content-center"
+Center all columns horizontally inside the row.
+
+Internally, Bootstrap applies something similar to:*/
     <Container fluid className={styles.contactPage}>
 
-      {/* Hero Section */}
-      <Row className="mb-5">
+      {/* ================= HERO ================= */}
+     
+      <Row className="justify-content-center">
 
-        <Col className="text-center">
+        <Col lg={6} className="text-center">
 
           <h1 className={styles.heading}>
             Contact Us
           </h1>
 
+          <div className={styles.headingDivider}></div>
+
+          <p className={styles.subHeading}>
+            We'd love to hear from you. Whether you have a question regarding
+            medicines, healthcare services, orders or appointments, our support
+            team is always ready to help you.
+          </p>
+
         </Col>
 
       </Row>
 
-      {/* Main Content */}
+      {/* ================= MAIN SECTION ================= */}
 
-      <Row className="justify-content-center g-4">
+      <Row className="justify-content-center mt-5 g-5">
 
-        {/* Left Side */}
+        {/* ================= LEFT CARD ================= */}
 
         <Col lg={5}>
 
@@ -38,7 +70,7 @@ const ContactUs = () => {
 
             <Card.Body className="p-5">
 
-              <h2 className="mb-5 fw-bold">
+              <h2 className="fw-bold mb-5">
                 Get in Touch
               </h2>
 
@@ -121,19 +153,77 @@ const ContactUs = () => {
 
               </div>
 
+              {/* ================= SOCIAL ================= */}
+
+              <hr className="my-5" />
+
+              <h5 className="fw-bold mb-4">
+                Follow Us
+              </h5>
+
+              <div className={styles.socialIcons}>
+
+                <div className={styles.socialCircle}>
+                  <FaFacebookF />
+                </div>
+
+                <div className={styles.socialCircle}>
+                  <FaInstagram />
+                </div>
+
+                <div className={styles.socialCircle}>
+                  <FaLinkedinIn />
+                </div>
+
+                <div className={styles.socialCircle}>
+                  <FaTwitter />
+                </div>
+
+              </div>
+
+              {/* ================= STATS ================= */}
+
+              <Row className="text-center mt-5">
+
+                <Col>
+
+                  <h3>15K+</h3>
+
+                  <small>Happy Customers</small>
+
+                </Col>
+
+                <Col>
+
+                  <h3>24/7</h3>
+
+                  <small>Support</small>
+
+                </Col>
+
+                <Col>
+
+                  <h3>200+</h3>
+
+                  <small>Cities</small>
+
+                </Col>
+
+              </Row>
+
             </Card.Body>
 
           </Card>
 
         </Col>
 
-        {/* Right Side */}
+        {/* ================= FORM ================= */}
 
-        <Col lg={6}>
+        <Col lg={7}>
 
           <Card className={`${styles.formCard} border-0`}>
 
-            <Card.Body className="p-5">
+            <Card.Body className="p-3">
 
               <h2 className="fw-bold text-success mb-4">
                 Send us a Message
@@ -152,8 +242,7 @@ const ContactUs = () => {
                       <Form.Control
                         type="text"
                         className={styles.customInput}
-                        placeholder="Enter your name"
-                        required
+                        placeholder="Enter your full name"
                       />
 
                     </Form.Group>
@@ -170,7 +259,6 @@ const ContactUs = () => {
                         type="text"
                         className={styles.customInput}
                         placeholder="Enter phone number"
-                        required
                       />
 
                     </Form.Group>
@@ -187,7 +275,6 @@ const ContactUs = () => {
                     type="email"
                     className={styles.customInput}
                     placeholder="Enter your email"
-                    required
                   />
 
                 </Form.Group>
@@ -199,7 +286,7 @@ const ContactUs = () => {
                   <Form.Control
                     type="text"
                     className={styles.customInput}
-                    placeholder="Subject"
+                    placeholder="Enter subject"
                   />
 
                 </Form.Group>
@@ -213,17 +300,20 @@ const ContactUs = () => {
                     rows={6}
                     className={styles.customInput}
                     placeholder="Write your message..."
-                    required
                   />
 
                 </Form.Group>
 
                 <Button
-                  type="submit"
                   className={styles.submitBtn}
+                  type="submit"
                 >
                   <FaEnvelope className="me-2" />
+
                   Send Message
+
+                  <FaArrowRight className="ms-2" />
+
                 </Button>
 
               </Form>
@@ -235,6 +325,34 @@ const ContactUs = () => {
         </Col>
 
       </Row>
+
+      {/* ================= MAP ================= */}
+
+      <Row className="justify-content-center mt-5">
+
+        <Col lg={12}>
+
+          <Card className={`${styles.mapCard} border-0`}>
+
+            <iframe
+              title="Google Map"
+              src="https://www.google.com/maps?q=New+Delhi&output=embed"
+              width="100%"
+              height="350"
+              style={{
+                border: 0,
+                borderRadius: "20px"
+              }}
+              loading="lazy"
+            />
+
+          </Card>
+
+        </Col>
+
+      </Row>
+
+      
 
     </Container>
   );
